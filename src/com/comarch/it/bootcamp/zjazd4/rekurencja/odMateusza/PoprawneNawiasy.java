@@ -1,4 +1,4 @@
-package com.comarch.it.bootcamp.zjazd4.rekurencja;
+package com.comarch.it.bootcamp.zjazd4.rekurencja.odMateusza;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -26,26 +26,25 @@ W naszym kodzie używamy stos.pop(), aby usunąć ostatni dodany otwierający na
 
         System.out.println("Napisz dowolne slowo zamierające nawiasy");
         String wyrazZNawiasami = scanner.next();
-        
+
+        if (sprawdzenieNawiasow(wyrazZNawiasami) == true) {
+            System.out.println("Nawiasy są poprawne.");
+        } else {
+            System.out.println("Nawiasy nie są poprawne.");
+        }
     }
     public static boolean sprawdzenieNawiasow (String wyrazZNawiasami){
-        Stack<Character> stos = new Stack<>();
+        Stack<Character> stos = new Stack<>(); // nowy stos, który będzie przechowywał znaki. Możemy używać tego stosu do dodawania znaków na wierzch stosu (push) i usuwania ich z wierzchu (pop).
 
         for (char znak : wyrazZNawiasami.toCharArray()) {
-            if (znak == '(' || znak == '{' || znak == '[') {
+            if (znak == '(') {
                 stos.push(znak);
-            } else if (znak == ')' || znak == '}' || znak == ']') {
-                if (stos.isEmpty()) {
-                    return false;
-                }
-
-                char otwierajacy = stos.pop();
-                if (!((otwierajacy == '(' && znak == ')') || (otwierajacy == '{' && znak == '}') || (otwierajacy == '[' && znak == ']'))) {
+            } else if (znak == ')') {
+                if (stos.isEmpty() || stos.pop() != '(') {
                     return false;
                 }
             }
         }
-
         return stos.isEmpty();
     }
 }

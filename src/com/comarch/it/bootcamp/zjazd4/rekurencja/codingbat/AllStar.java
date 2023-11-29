@@ -1,4 +1,4 @@
-package com.comarch.it.bootcamp.zjazd4.rekurencja;
+package com.comarch.it.bootcamp.zjazd4.rekurencja.codingbat;
 
 import java.util.Scanner;
 
@@ -14,6 +14,9 @@ allStar("ab") → "a*b"
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Podaj ciąg znaków :");
+
+
+
         String str = scanner.next();
 
         System.out.println("Tekst po dodaniu '*': " + allStar(str));

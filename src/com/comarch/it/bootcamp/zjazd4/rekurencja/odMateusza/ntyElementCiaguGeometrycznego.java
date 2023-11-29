@@ -1,4 +1,4 @@
-package com.comarch.it.bootcamp.zjazd4.rekurencja;
+package com.comarch.it.bootcamp.zjazd4.rekurencja.odMateusza;
 
 import java.util.Scanner;
 
